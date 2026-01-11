@@ -68,20 +68,20 @@ export default function Home() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="w-full  px-6 py-4 bg-white text-black rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full px-6 py-4 bg-white text-black rounded-lg text-lg cursor-text focus:outline-none"
             />
+            <button
+              type="submit"
+              className="w-full px-6 py-4 bg-white text-black rounded-lg text-lg font-semibold hover:bg-gray-200 transition-colors cursor-pointer"
+            >
+              Subscribe
+            </button>
             {error && (
               <p className="text-red-500 text-sm">{error}</p>
             )}
             {success && (
               <p className="text-green-500 text-sm">Successfully subscribed!</p>
             )}
-            <button
-              type="submit"
-              className="w-full px-6 py-4 bg-white text-black rounded-lg text-lg font-semibold hover:bg-gray-200 transition-colors"
-            >
-              Subscribe
-            </button>
           </div>
         </form>
       </div>
@@ -89,10 +89,10 @@ export default function Home() {
       {/* Footer with YouTube link */}
       <footer className="mt-8">
         <a
-          href="https://youtube.com"
+          href="https://www.youtube.com/@realisticallymoney"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white hover:text-gray-300 transition-colors"
+          className="text-white hover:text-gray-300 transition-colors cursor-pointer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
