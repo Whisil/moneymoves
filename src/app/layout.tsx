@@ -8,8 +8,23 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Free Finance World Newsletter",
-  description: "Fresh money news = fresh money moves",
+  title: "money moves newsletter",
+  description: "fresh money news = fresh money moves",
+  openGraph: {
+    title: "money moves newsletter",
+    description: "fresh money news = fresh money moves",
+    url: defaultUrl,
+    siteName: "free Finance World Newsletter",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "money moves newsletter",
+    description: "fresh money news = fresh money moves",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 const geistSans = Geist({

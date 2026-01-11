@@ -57,7 +57,7 @@ export default function Home() {
 
         {/* Subtitle */}
         <p className="text-xl md:text-2xl text-gray-400 text-center mb-12">
-          Fresh money news = fresh money moves
+          fresh money news = fresh money moves
         </p>
 
         {/* Email form */}
