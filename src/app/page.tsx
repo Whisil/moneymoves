@@ -69,6 +69,7 @@ export default function Home() {
           width={240}
           height={96}
           className="object-contain"
+          quality={100}
           priority
         />
       </header>
