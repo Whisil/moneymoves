@@ -2,36 +2,61 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { createClient } from "@/lib/supabase/client";
 
 export default function Home() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setSuccess(false);
+    setIsSubmitting(true);
 
     if (!email) {
       setError("Please enter an email address");
+      setIsSubmitting(false);
       return;
     }
 
     if (!validateEmail(email)) {
       setError("Please enter a valid email address");
+      setIsSubmitting(false);
       return;
     }
 
-    // Handle the submission here (e.g., send to API)
-    console.log("Email submitted:", email);
-    setSuccess(true);
-    setEmail("");
+    try {
+      const supabase = createClient();
+      
+      const { error: insertError } = await supabase
+        .from("emails")
+        .insert({ email: email.toLowerCase().trim() });
+
+      if (insertError) {
+        if (insertError.code === "23505") {
+          setError("This email is already subscribed");
+        } else {
+          setError("Failed to subscribe. Please try again.");
+        }
+        console.error("Supabase error:", insertError);
+      } else {
+        setSuccess(true);
+        setEmail("");
+      }
+    } catch (err) {
+      setError("An unexpected error occurred. Please try again.");
+      console.error("Error:", err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -72,9 +97,10 @@ export default function Home() {
             />
             <button
               type="submit"
-              className="w-full px-6 py-4 bg-white text-black rounded-lg text-lg font-semibold hover:bg-gray-200 transition-colors cursor-pointer"
+              disabled={isSubmitting}
+              className="w-full px-6 py-4 bg-white text-black rounded-lg text-lg font-semibold hover:bg-gray-200 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Subscribe
+              {isSubmitting ? "Subscribing..." : "Subscribe"}
             </button>
             {error && (
               <p className="text-red-500 text-sm">{error}</p>
