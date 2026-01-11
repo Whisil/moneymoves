@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -35,13 +36,20 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-black text-white flex flex-col items-center justify-between p-8">
+      {/* Header with Logo */}
+      <header className="w-full flex justify-center pt-4 pb-8">
+        <Image
+          src="/images/moneymoves-logo.png"
+          alt="Money Moves Logo"
+          width={240}
+          height={96}
+          className="object-contain"
+          priority
+        />
+      </header>
+
       {/* Main content - centered */}
       <div className="flex-1 flex flex-col items-center justify-center w-full max-w-6xl">
-        {/* Logo placeholder */}
-        <div className="w-24 h-24 bg-white rounded-full mb-8 flex items-center justify-center text-black font-bold text-2xl">
-          LOGO
-        </div>
-
         {/* Title */}
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
           Free Finance World Newsletter
@@ -53,14 +61,14 @@ export default function Home() {
         </p>
 
         {/* Email form */}
-        <form onSubmit={handleSubmit} className="w-full max-w-md">
+        <form onSubmit={handleSubmit} className="w-full max-w-lg">
           <div className="flex flex-col gap-4">
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="w-full px-6 py-4 bg-white text-black rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full  px-6 py-4 bg-white text-black rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-white"
             />
             {error && (
               <p className="text-red-500 text-sm">{error}</p>
