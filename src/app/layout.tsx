@@ -22,14 +22,6 @@ export const metadata: Metadata = {
     title: "money moves newsletter",
     description: "fresh money news = fresh money moves",
   },
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.ico", type: "image/x-icon" },
-    ],
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
 };
 
 const geistSans = Geist({
