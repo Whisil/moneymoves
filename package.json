@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "generate:brand-assets": "node scripts/generate-bbh-wordmark.mjs"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.3.1",

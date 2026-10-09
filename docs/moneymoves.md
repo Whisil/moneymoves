@@ -73,7 +73,7 @@ Use humor and provocation as pacing tools, not substitutes for proof. Avoid empt
 
 The foundation is monochrome: near-black, warm white, high contrast, and oversized typography. Signal red is the recurring accent used for the fact, number, phrase, or interface state that demands attention. Cyan and magenta appear sparingly as chromatic interference rather than a general-purpose palette.
 
-The core type system uses Peace Sans for major headlines, LT Superior Mono for body copy and interface labels, BBH Bartle for occasional editorial accents, and Press Start 2P for small pixel details.
+The core type system uses Peace Sans for major headlines, LT Superior Mono for body copy and interface labels, BBH Bartle for occasional editorial accents, and Press Start 2P for small pixel details. Brand assets include a transparent uppercase `MONEYMOVES` wordmark and square YouTube marks rendered directly from the supplied font files, with warm-white letterforms, red/cyan edge separation, and print-like distress.
 
 Core treatments include:
 
